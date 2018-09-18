@@ -7,49 +7,46 @@ var pike_location = {
   min: 23, //this is min cust per hour
   max: 65, //this is max cust per hour
   avgCookieSales: 6.3, //avg cookie sales per hour
-
+  dailyTotal: [],// from open to close
+  cookieSales:[], // 15 times
   // methods
 
-  getRandomIntInclusive: function(min, max) {
-    min = Math.ceil(this.minCustomers);
-    max = Math.floor(this.maxCustomers);
+  getRandomCustomer: function(min, max) {
+    min = Math.ceil(this.min);
+    max = Math.floor(this.max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
   },
 
-  getRandomNumberOfCustomers: function() {
-    return getRandomIntInclusive(this.min, this.max);
-  },
-
-  getTotalCookiesPurchasedPerHour: function(totalCustomersPerHour) {
-    return totalCustomersPerHour * this.avgCookieSales;
+  getTotalCookiesPurchasedPerHour: function() {
+    return this.getRandomCustomer * this.avgCookieSales;
   },
 
   calculateCookiesPurchased: function() {
-    var hourToCookiesMap = {};
-
+    
+  },
     for (var i = 0; i < hours.length; i++) {
       // get a random of customers
-      var randomCustomers = this.getRandomNumberOfCustomers;
+      var randomCustomers = this.getRandomCustomers;//this is just for one hour
       // get the total cookies purchased for the hour
       var totalCookiesPerHour = this.getTotalCookiesPurchasedPerHour(randomCustomers);
       // push the hour and total cookies purchased into a map
       var hour = hours[i];
       // example {"6am": 144.9}
       hourToCookiesMap[hour]= totalCookiesPerHour;
-    }
-    //return map
-    return hourToCookiesMap;
-  }
-};
+//     }
+//     //return map
+//     return hourToCookiesMap;
+//   }
+// };
 
-pike_location.calculateCookiesPurchased;
-
-
+// pike_location.calculateCookiesPurchased();
 
 
 
-// var seatac= {
-//   min: 3,
+
+
+// // var seatac= {
+// //   min: 3,
 //   max: 24,
 //   avg: 1.2,
 
