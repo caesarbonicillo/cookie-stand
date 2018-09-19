@@ -9,39 +9,40 @@ var CookieStand = function (location, min, max, avg, hourlySales, total) {
   this.avg = avg;
   this.hourlySales = hourlySales;
   this.total = total;
-
-  this.randomNum = function(){
-    return Math.floor(Math.random()*(this.max - this.min +1) + this.min);
-    //gives random number of customers based on min and max
-  },
-
-  this.avgNumCookies = function() {
-    for(var i = 0; i < hours.length; i++) {
-      var valueSale = Math.floor (this.avg * this.randomNum());
-      this.hourlySales.push(valueSale);
-      this.total += valueSale;
-    }//takes from randomNum and mulitplies it from avg cookies takes pushes it into hourlSales[] also adding hour sale to days total
-  },
-
-  this.render = function() {
-    var element =document.getElementById('store1');
-    var storeTitle = document.createElement('h3');
-    storeTitle.textContent = this.name;
-    element.appendChild(storeTitle);
-
-    for (var i =0; i < hours.length; i++) {
-      var element1 =document.getElementById('list1');
-      var storeList = document.createElement('li');
-      storeList.textContent = this.hourlySales[i];
-      element1.appendChild(storeList); 
-    }
-
-    var element2 =document.getElementById('store1');
-    var storeTotal = document.createElement('p');
-    storeTotal.textContent = this.total;
-    element2.appendChild(storeTotal);
-  };
 };
+
+this.randomNum = function(){
+  return Math.floor(Math.random()*(this.max - this.min +1) + this.min);
+  //gives random number of customers based on min and max
+},
+
+this.avgNumCookies = function() {
+  for(var i = 0; i < hours.length; i++) {
+    var valueSale = Math.floor (this.avg * this.randomNum());
+    this.hourlySales.push(valueSale);
+    this.total += valueSale;
+  }//takes from randomNum and mulitplies it from avg cookies takes pushes it into hourlSales[] also adding hour sale to days total
+},
+
+this.render = function() {
+  var element =document.getElementById('store1');
+  var storeTitle = document.createElement('h3');
+  storeTitle.textContent = this.name;
+  element.appendChild(storeTitle);
+
+  for (var i =0; i < hours.length; i++) {
+    var element1 =document.getElementById('list1');
+    var storeList = document.createElement('li');
+    storeList.textContent = this.hourlySales[i];
+    element1.appendChild(storeList); 
+  }
+
+  var element2 =document.getElementById('store1');
+  var storeTotal = document.createElement('p');
+  storeTotal.textContent = this.total;
+  element2.appendChild(storeTotal);
+};
+
 
 
 var Pike = new CookieStand ('Pike', 23, 63, 6.3, [], 1);
