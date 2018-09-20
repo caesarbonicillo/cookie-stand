@@ -39,20 +39,27 @@ CookieStand.prototype.avgNumCookies = function() {
 };
 //Starts my render.
 
-CookieStand.prototype.render = function() {
-  var table1 = document.getElementById('table');
-  var tableRow = document.createElement('tr'); //created tr in HTML
-  var tableTD = document.createElement('td'); //created TD
-  tableTD.textContent = this.location; //added the location name to the TD
+CookieStand.prototype.render = function() { //calling render to CookieStand Construct
+  var table1 = document.getElementById('table'); // referring to 'id= table' in HTML
+  var tableRow = document.createElement('tr'); //created tr in HTML is under <table>
+  var tableTD = document.createElement('td'); //created TD in HTML is under <tr>
+  tableTD.textContent = this.avg; //added the location name to the TD <still> 
   tableRow.appendChild(tableTD); //added td to the actual HTML
+  
 
-  for (var i = 0; i < hours.length; i++) { //ran 4 loop to create and give data
+  for (var i = 0; i < hours.length; i++) { //ran 4 loop to create and give data which is as long as "hours"
     var newTD = document.createElement('td');// create td for Data
     newTD.textContent = this.hourlySales; // text.Content adds the information
-    newTD.appendChild(tableRow); // //adds new TD with Data to table }
-  };
-  table1.appendChild(tableRow);
+    newTD.appendChild(tableRow); // //adds new TD with Data to table 
 
+
+
+
+
+ }
+  table1.appendChild(tableRow);
+  
+};
 // CookieStand.prototype.render = function() {
   //   var element =document.getElementById('table');
   //   var storeTitle = document.createElement('h3');
@@ -77,6 +84,12 @@ CookieStand.prototype.render = function() {
     var CapitalHill = new CookieStand ('CapitalHill', 20, 38, 2.3);
     var Alki = new CookieStand ('Alki', 2, 16, 4.6);
     Pike.render();
+  
     console.log(CookieStand.list);
     // //function renderTableHeadHead
-    
+
+    // function render
+    // function renderPeople() {
+    //   for(var i of allPerson) {
+    //     i.render();
+    //     console.log(allPerson[i]);
