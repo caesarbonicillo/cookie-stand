@@ -19,7 +19,7 @@ var pikeL = {
 
   avgNumCookies: function() {
     for(var i = 0; i < hours.length; i++) {
-      var valueSale = Math.floor (this.avg * this.randomNum())
+      var valueSale = Math.floor (this.avg * this.randomNum());
       this.hourlySales.push(valueSale);
       this.total += valueSale;
     }//takes from randomNum and mulitplies it from avg cookies takes pushes it into hourlSales[] also adding hour sale to days total
